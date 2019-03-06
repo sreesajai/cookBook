@@ -1,0 +1,61 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models",
+      "./models/user",
+      "./models/access-token",
+      "./models/role",
+      "./models/roleMapping",
+      "../node_modules/loopback-component-passport/lib/models",
+      "./models/user-profile",
+      "./models/recipe",
+      "./models/container"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins",
+      "../node_modules/loopback-setup-remote-methods-mixin"
+    ]
+  },
+  "ACL": {
+    "dataSource": "mysqlDS",
+    "public": false
+  },
+  "roleMapping": {
+    "dataSource": "mysqlDS",
+    "public": false
+  },
+  "role": {
+    "dataSource": "mysqlDS",
+    "public": false
+  },
+  "user": {
+    "dataSource": "mysqlDS",
+    "public": true
+  },
+  "accessToken": {
+    "dataSource": "mysqlDS",
+    "public": false
+  },
+  "UserIdentity": {
+    "dataSource": "mysqlDS",
+    "public": false
+  },
+  "UserCredential": {
+    "dataSource": "mysqlDS",
+    "public": false
+  },
+  "UserProfile": {
+    "dataSource": "mysqlDS",
+    "public": false
+  },
+  "Recipe": {
+    "dataSource": "mysqlDS",
+    "public": true
+  }
+}

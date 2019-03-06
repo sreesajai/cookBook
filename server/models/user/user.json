@@ -1,0 +1,141 @@
+{
+  "name": "user",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "username": false,
+    "realm": false,
+    "email": {
+      "type": "string"
+    },
+    "contactNumber": {
+      "type": "string"
+    },
+    "emailVerified": {
+      "type": "boolean",
+      "default": false
+    },
+    "otp": {
+      "type": "number"
+    },
+    "verificationToken": {
+      "type": "string"
+    },
+    "firstLogin": {
+      "type": "boolean",
+      "default": false
+    },
+    "profileName": {
+      "type": "string"
+    },
+    "userName": {
+      "type": "string"
+    },
+    "otpVerified": {
+      "type": "boolean",
+      "default": false
+    },
+    "fbProfile": {
+      "type": "object"
+    },
+    "dietaryRestrictions": {
+      "type": "number"
+    },
+    "allergies": {
+      "type": "array"
+    },
+    "password": false
+  },
+  "hidden": [
+    "otp",
+    "verificationToken"
+  ],
+  "validations": [],
+  "relations": {
+    "accessTokens": {
+      "foreignKey": "userId",
+      "model": "accessToken",
+      "type": "hasMany"
+    },
+    "identities": {
+      "type": "hasMany",
+      "model": "userIdentity",
+      "foreignKey": "userId"
+    },
+    "credentials": {
+      "type": "hasMany",
+      "model": "userCredential",
+      "foreignKey": "userId"
+    },
+    "profile": {
+      "type": "hasOne",
+      "model": "UserProfile"
+    },
+    "recipes": {
+      "type": "hasMany",
+      "model": "Recipe",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "postSignupEmail"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "users"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "mobileRegistration"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "sendMobileOtp"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "verifyMobileOtp"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "verifyEmail"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "resendOtp"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "facebookRegistration"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "postName"
+    }
+  ],
+  "methods": {}
+  
+}

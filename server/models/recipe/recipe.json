@@ -1,0 +1,71 @@
+{
+  "name": "Recipe",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "prepTime": {
+      "type": "string"
+    },
+    "servings": {
+      "type": "string"
+    },
+    "ingredient": {
+      "type": "array"
+    },
+    "cookware": {
+      "type": "array"
+    },
+    "steps": {
+      "type": "array"
+    },
+    "userId": {
+      "type": "string"
+    },
+    "private": {
+      "type": "string"
+    },
+    "ingredientAmount": {
+      "type": "array"
+    },
+    "link": {
+      "type": "string"
+    },
+    "etag": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "bucket": {
+      "type": "object"
+    },
+    "createdTime":{
+      "type":"object"
+    } 
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    },
+    "container": {
+      "type": "hasOne",
+      "model": "container",
+      "foreignkey": "recipeId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+  
+}

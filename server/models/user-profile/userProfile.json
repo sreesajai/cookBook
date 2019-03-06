@@ -1,0 +1,40 @@
+{
+  "name": "UserProfile",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "dietaryRestrictions": {
+      "type": "number"
+    },
+    "allergies": {
+      "type": "object"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "dietaryDetails"
+    }
+  ],
+  "methods": {},
+  "mixins": {
+    "SetupRemoteMethods": {
+      "disableAllExcept": [
+        "dietaryDetails"
+      ]
+    }
+  }
+}
+
